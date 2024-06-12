@@ -4,7 +4,7 @@
   "description": "Learning how to build APIs",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Samuel",
   "license": "ISC",
