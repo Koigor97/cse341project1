@@ -61,3 +61,56 @@ exports.createContacts = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+//* updating a contact
+exports.updateContacts = async (req, res) => {
+  try {
+    const Contacts = getContactsCollection();
+    const { id } = req.params;
+    const contact = req.body;
+    console.log(contact);
+    const updateDoc = { $set: contact };
+    const result = await Contacts.updateOne(
+      {
+        _id: new ObjectId(id)
+      },
+      updateDoc
+    );
+
+    if (!result) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'Contact not found'
+      });
+    }
+    res.status(200).json({
+      status: 'success',
+      data: result
+    });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+//* deleting a contact
+exports.deleteContacts = async (req, res) => {
+  try {
+    const Contacts = getContactsCollection();
+    const { id } = req.params;
+    const result = await Contacts.deleteOne({ _id: new ObjectId(id) });
+    if (!result) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'Contact not found'
+      });
+    }
+    res.status(200).json({
+      status: 'success',
+      data: result
+    });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
