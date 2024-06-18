@@ -1,8 +1,8 @@
-// creating a schema for the contacts collection
+//* creating a schema for the contacts collection
 exports.contactSchema = {
-  firstName: "string",
-  lastName: "string",
-  email: "string",
-  favoriteColor: "string",
-  birthday: "string",
+  firstName: 'string',
+  lastName: 'string',
+  email: 'string',
+  favoriteColor: 'string',
+  birthday: 'string'
 };

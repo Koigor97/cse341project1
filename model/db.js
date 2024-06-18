@@ -1,33 +1,33 @@
 // db.js
-const dotenv = require("dotenv");
-const { MongoClient } = require("mongodb");
-const contactsSchema = require("./contactsSchema");
+const dotenv = require('dotenv');
+const { MongoClient } = require('mongodb');
+const contactsSchema = require('./contactsSchema');
 dotenv.config();
 
-// connecting to mongodb
+//* connecting to mongodb
 const client = new MongoClient(
-  process.env.MONGO_DB_URI.replace("<PASSWORD>", process.env.MONGO_DB_PASSWORD)
+  process.env.MONGO_DB_URI.replace('<PASSWORD>', process.env.MONGO_DB_PASSWORD)
 );
 
 let Contacts;
 
-// connecting to mongodb
+//* connecting to mongodb
 async function connectDB() {
   try {
     await client.connect();
-    console.log("Connected to MongoDB");
+    console.log('Connected to MongoDB');
     Contacts = client
-      .db("cse341project1")
-      .collection("contacts", contactsSchema);
+      .db('cse341project1')
+      .collection('contacts', contactsSchema);
   } catch (error) {
     console.error(error);
   }
 }
 
-// getting contacts collection
+//* getting contacts collection
 function getContactsCollection() {
   if (!Contacts) {
-    throw new Error("Contacts collection not initialized");
+    throw new Error('Contacts collection not initialized');
   }
   return Contacts;
 }
