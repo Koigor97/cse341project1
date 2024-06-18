@@ -19,6 +19,6 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(express.json());
 
 //* using the contacts route
-app.use('/api/contacts', contactsRoute);
+app.use('/contacts', contactsRoute);
 
 module.exports = app;
