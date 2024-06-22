@@ -5,7 +5,7 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "localhost:8000",
+  "host": "cse341project1-ah8s.onrender.com/",
   "basePath": "/",
   "schemes": ["https", "http"],
   "paths": {
