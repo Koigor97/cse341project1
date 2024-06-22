@@ -5,11 +5,11 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "cse341project1-ah8s.onrender.com/",
+  "host": "cse341project1-ah8s.onrender.com",
   "basePath": "/",
   "schemes": ["https", "http"],
   "paths": {
-    "contacts": {
+    "/contacts": {
       "get": {
         "tags": ["Contacts"],
         "description": "",
