@@ -1,3 +1,5 @@
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./model/swagger-output.json');
 const dotenv = require('dotenv');
 const { connectDB } = require('./model/db');
 dotenv.config();
@@ -8,8 +10,12 @@ connectDB();
 
 //* route to home page
 app.get('/', (req, res) => {
+  //#swagger.tags = ['Home']
   res.send('Hello World!');
 });
+
+//* route to swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //* starting the server
 app.listen(process.env.PORT, () => {
