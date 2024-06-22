@@ -1,10 +1,13 @@
 const express = require('express');
 const contactsController = require('../controller/contactsController');
 
-// using the express router function
+//* using the express router function
 const router = express.Router();
 
-// defining the contacts routes
+// //* using swagger middleware
+// router.use('/', require('./swagger'));
+
+//* defining the contacts routes
 router
   .route('/')
   .get(contactsController.getAllContacts)
