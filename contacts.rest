@@ -1,0 +1,50 @@
+// defining the routes to the contacts api
+
+//* Geting all contact
+
+GET https://cse341project1-ah8s.onrender.com/contacts HTTP/1.1
+
+###
+
+// Adding a new contact or contacts
+
+POST https://cse341project1-ah8s.onrender.com/contacts HTTP/1.1
+Content-Type: application/json
+
+[
+    {
+        "firstName": "Kelfalah",
+        "lastName": "Turay",
+        "email": "kelo@example.com",
+        "favoriteColor": "Green",
+        "birthday": "1996-Jul-04"
+    }
+]
+
+###
+
+// Getting as a specific contact
+
+GET https://cse341project1-ah8s.onrender.com/contacts/666b4811ccfd8982d1bbedcf HTTP/1.1
+
+###
+
+// Updating a specific contact
+PUT https://cse341project1-ah8s.onrender.com/contacts/6669a188067e379de6dbc07c HTTP/1.1
+Content-Type: application/json
+
+[
+    {
+      "firstName": "Jeremiah",
+      "lastName": "Brewah",
+      "email": "jbre@example.com",
+      "favoriteColor": "Purple",
+      "birthday": "1995-May-29"
+    }
+]
+
+###
+
+// Deleting a specific contact
+
+DELETE  https://cse341project1-ah8s.onrender.com/contacts/6669a188067e379de6dbc07d HTTP/1.1
